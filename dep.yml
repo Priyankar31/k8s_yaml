@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata: 
+  name: zomato-deployment
+  labels:
+    type: food-delivery-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: food-delivery-app
+  template:
+    metadata:
+      name: zomato-pod
+      labels: 
+        type: food-delivery-app
+    spec:
+      containers:
+      - name: my-zomato-container
+        image: elevendevops/bharath-zomato-image:latest

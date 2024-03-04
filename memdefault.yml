@@ -1,0 +1,12 @@
+kind: LimitRange
+apiVersion: v1
+metadata:
+  name: mem-min-max-demo-lr
+spec:
+  limits:
+  - max:
+      memory: 1Gi
+    min:
+      memory: 500Mi
+    type: Container
+

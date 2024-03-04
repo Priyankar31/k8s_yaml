@@ -1,0 +1,22 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mypod
+spec:
+  containers:
+  - name: c01
+    image: centos
+    command: ["/bin/bash", "-c", "sleep 10000"]
+    volumeMounts:
+    - name: myvol
+      mountPath: "/tmp/c01dir"
+
+  - name: c02
+    image: centos
+    command: ["/bin/bash", "-c", "sleep 10000"]
+    volumeMounts:
+    - name: myvol
+      mountPath: "/tmp/c02dir"
+  volumes:
+   - name: myvol
+     emptyDir: {}

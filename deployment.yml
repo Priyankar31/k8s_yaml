@@ -1,0 +1,22 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: deployment
+  labels:
+    author: priya
+spec:
+   replicas: 2 
+   selector:
+     matchLabels:
+       author: priya
+   template:
+     metadata:
+       labels:
+         author: priya
+
+     spec:
+       containers:
+       - name: nginx
+         image: nginx:1.14.2
+         ports:
+         - containerPort: 80

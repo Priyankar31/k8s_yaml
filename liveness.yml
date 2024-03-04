@@ -1,0 +1,20 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mypod
+  labels:
+    test: liveness
+spec:
+  containers:
+  - name: mycont
+    image: ubuntu
+    command: ["/bin/bash", "-c", "touch /tmp/healthy;  sleep 10000"]
+    livenessProbe:
+      exec:
+        command:
+        - cat
+        - /tmp/healthy
+      initialDelaySeconds: 5
+      periodSeconds: 5
+      timeoutSeconds: 30
+
